@@ -1,0 +1,27 @@
+import { connect } from "react-redux";
+import { addUser } from "../actions/auth";
+
+
+type Props = {
+    addUser: (user: {}) => void;
+  };
+  
+
+const Register: React.FC<Props> = ({ addUser }) => {
+}
+
+export default connect(() => {}, { addUser })(Register);
+
+
+interface UserAction {
+  type: ACTIONTYPE;
+  payload: User;
+}
+
+interface AuthState {
+  users: User[];
+}
+
+const store: Store<AuthState, UserAction> & {
+  dispatch: any;
+} = createStore(authReducer, applyMiddleware(thunk));
